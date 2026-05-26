@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Grabaciones Gorilaz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span class="logo-icon">▶</span>
+        <span class="logo-text">GORILAZ</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="pages/contacto.html">Contacto</a></li>
+        <li><a href="pages/ubicacion.html">Ubicación</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Contepec, Michoacán</p>
+      <h1 class="hero-title">
+        <span class="line">Video Grabaciones</span>
+        <span class="line gold">Gorilaz</span>
+      </h1>
+      <p class="hero-subtitle">Capturamos los momentos que duran para siempre</p>
+      <div class="hero-cta">
+        <a href="#servicios" class="btn-primary">Ver Servicios</a>
+        <a href="pages/contacto.html" class="btn-outline">Contáctanos</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span></span>
+      <div class="scroll-line"></div>
+    </div>
+  </header>
+
+  <!-- ===== INTRO BAND ===== -->
+  <section class="intro-band">
+    <div class="band-grid">
+      <div class="band-item">
+        <span class="band-number">+10</span>
+        <span class="band-label">Años de experiencia</span>
+      </div>
+      <div class="band-divider"></div>
+      <div class="band-item">
+        <span class="band-number">4K</span>
+        <span class="band-label">Calidad de grabación</span>
+      </div>
+      <div class="band-divider"></div>
+      <div class="band-item">
+        <span class="band-number">∞</span>
+        <span class="band-label">Momentos eternos</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICIOS ===== -->
+  <section class="servicios" id="servicios">
+    <div class="section-header">
+      <p class="section-eyebrow">Lo que hacemos</p>
+      <h2 class="section-title">Nuestros Servicios</h2>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="cards-grid">
+
+      <a href="pages/15anos.html" class="card" data-service="xv">
+        <div class="card-img-wrap">
+          <img src="images/servicios/15años.jpg" alt="XV Años" class="card-img" loading="lazy"
+               onerror="this.style.display='none'; this.parentElement.classList.add('no-img')" />
+          <div class="card-placeholder">
+            <span class="card-icon">♛</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">XV Años</h3>
+          <p class="card-desc">Quinceañeras únicas, filmadas con la elegancia que merecen. Cada detalle, cada emoción.</p>
+          <span class="card-link">Ver videos <span class="arrow">→</span></span>
+        </div>
+        <div class="card-glow"></div>
+      </a>
+
+      <a href="pages/bodas.html" class="card" data-service="bodas">
+        <div class="card-img-wrap">
+          <img src="images/servicios/boda.jpg" alt="Bodas" class="card-img" loading="lazy"
+               onerror="this.style.display='none'; this.parentElement.classList.add('no-img')" />
+          <div class="card-placeholder">
+            <span class="card-icon">♥</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Bodas</h3>
+          <p class="card-desc">El día más especial merece una producción cinematográfica. Tu historia, contada con arte.</p>
+          <span class="card-link">Ver videos <span class="arrow">→</span></span>
+        </div>
+        <div class="card-glow"></div>
+      </a>
+
+      <a href="pages/bautizos.html" class="card" data-service="bautizos">
+        <div class="card-img-wrap">
+          <img src="images/servicios/bautizo.jpg" alt="Bautizos" class="card-img" loading="lazy"
+               onerror="this.style.display='none'; this.parentElement.classList.add('no-img')" />
+          <div class="card-placeholder">
+            <span class="card-icon">✦</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Bautizos</h3>
+          <p class="card-desc">Los primeros momentos de vida merecen ser recordados para siempre con calidad profesional.</p>
+          <span class="card-link">Ver videos <span class="arrow">→</span></span>
+        </div>
+        <div class="card-glow"></div>
+      </a>
+
+      <a href="pages/aereas.html" class="card" data-service="aereas">
+        <div class="card-img-wrap">
+          <img src="images/servicios/aereas.jpg" alt="Tomas Aéreas" class="card-img" loading="lazy"
+               onerror="this.style.display='none'; this.parentElement.classList.add('no-img')" />
+          <div class="card-placeholder">
+            <span class="card-icon">◈</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Tomas Aéreas</h3>
+          <p class="card-desc">Perspectivas únicas desde el cielo. Drones profesionales para bodas, eventos y más.</p>
+          <span class="card-link">Ver videos <span class="arrow">→</span></span>
+        </div>
+        <div class="card-glow"></div>
+      </a>
+
+      <a href="pages/contacto.html" class="card card-dark" data-service="contacto">
+        <div class="card-img-wrap">
+          <div class="card-placeholder">
+            <span class="card-icon">✉</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Contacto</h3>
+          <p class="card-desc">Escríbenos por WhatsApp, Instagram o Facebook. Estamos listos para tu evento.</p>
+          <span class="card-link">Contáctanos <span class="arrow">→</span></span>
+        </div>
+        <div class="card-glow"></div>
+      </a>
+
+      <a href="pages/ubicacion.html" class="card card-dark" data-service="ubicacion">
+        <div class="card-img-wrap">
+          <div class="card-placeholder">
+            <span class="card-icon">⌖</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Ubicación</h3>
+          <p class="card-desc">Visítanos en Foto Estudio Herjim, Coronel Rivera 9, Segundo Piso, Contepec, Mich.</p>
+          <span class="card-link">Ver en mapa <span class="arrow">→</span></span>
+        </div>
+        <div class="card-glow"></div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ===== QUOTE BAND ===== -->
+  <section class="quote-band">
+    <div class="quote-content">
+      <div class="quote-mark">"</div>
+      <p class="quote-text">La fotografía es la única forma de arte donde el material proviene directamente de la realidad.</p>
+      <p class="quote-author">— André Bazin</p>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-icon">▶</span>
+        <span class="logo-text">GORILAZ</span>
+      </div>
+      <p class="footer-tagline">Video Grabaciones Gorilaz — Contepec, Michoacán</p>
+      <div class="footer-links">
+        <a href="pages/contacto.html">Contacto</a>
+        <span>·</span>
+        <a href="pages/ubicacion.html">Ubicación</a>
+      </div>
+      <p class="footer-copy">&copy; 2025 Video Grabaciones Gorilaz. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

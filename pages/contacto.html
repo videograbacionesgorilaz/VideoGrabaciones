@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto — Video Grabaciones Gorilaz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <style>
+    /* ===== CONTACTO PAGE ===== */
+    .page-hero {
+      min-height: 38vh;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: calc(var(--nav-h) + 3rem) 2rem 3.5rem;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 100%, rgba(201,168,76,0.09) 0%, transparent 65%),
+        linear-gradient(180deg, #0A0A0A 0%, #111 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23C9A84C' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .page-hero-content { position: relative; z-index: 1; }
+    .page-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .page-desc {
+      font-size: 0.95rem;
+      color: var(--gray-2);
+      font-weight: 300;
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .page-gold-line {
+      width: 50px;
+      height: 2px;
+      background: var(--gold);
+      margin: 1.2rem auto 0;
+    }
+
+    /* ===== CONTACTO MAIN ===== */
+    .contacto-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 5rem 2rem 6rem;
+    }
+
+    /* Cards de redes */
+    .contacto-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .contacto-card {
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-lg);
+      padding: 2.2rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .contacto-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .contacto-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(201,168,76,0.35);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 24px rgba(201,168,76,0.08);
+    }
+    .contacto-card:hover::before { opacity: 1; }
+
+    .card-icon-wrap {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      transition: transform var(--transition);
+    }
+    .contacto-card:hover .card-icon-wrap { transform: scale(1.1); }
+
+    .icon-whatsapp { background: rgba(37,211,102,0.12); color: #25D366; }
+    .icon-instagram { background: rgba(193,53,132,0.12); color: #C13584; }
+    .icon-facebook { background: rgba(24,119,242,0.12); color: #1877F2; }
+
+    .contacto-card-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      color: var(--white);
+    }
+    .contacto-card-info {
+      font-size: 0.82rem;
+      color: var(--gray-3);
+      line-height: 1.6;
+    }
+    .contacto-card-info span {
+      display: block;
+    }
+
+    .contacto-btn {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.7rem 1.6rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+      text-decoration: none;
+    }
+    .contacto-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+
+    .btn-whatsapp  { background: #25D366; color: #fff; }
+    .btn-whatsapp2 { background: #128C7E; color: #fff; }
+    .btn-instagram { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #fff; }
+    .btn-facebook  { background: #1877F2; color: #fff; }
+
+    /* Números WhatsApp extra */
+    .wa-numbers {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      width: 100%;
+    }
+
+    /* Divider con texto */
+    .contacto-divider {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin: 0 0 3rem;
+    }
+    .contacto-divider::before,
+    .contacto-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(201,168,76,0.15);
+    }
+    .contacto-divider span {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gray-4);
+      white-space: nowrap;
+    }
+
+    /* Banner mensaje directo */
+    .contacto-banner {
+      background: var(--dark-2);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .contacto-banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 100%, rgba(201,168,76,0.05), transparent 70%);
+      pointer-events: none;
+    }
+    .banner-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .banner-text {
+      font-size: 0.88rem;
+      color: var(--gray-2);
+      font-weight: 300;
+      margin-bottom: 1.8rem;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+    .banner-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-banner-wa {
+      padding: 0.85rem 2rem;
+      background: #25D366;
+      color: #fff;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .btn-banner-wa:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37,211,102,0.3);
+    }
+    .btn-banner-wa2 {
+      padding: 0.85rem 2rem;
+      background: #128C7E;
+      color: #fff;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .btn-banner-wa2:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(18,140,126,0.3);
+    }
+
+    /* Volver */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray-3);
+      margin-bottom: 3rem;
+      transition: color var(--transition);
+    }
+    .back-link:hover { color: var(--gold); }
+    .back-arrow { font-size: 1rem; transition: transform var(--transition); }
+    .back-link:hover .back-arrow { transform: translateX(-4px); }
+
+    @media (max-width: 700px) {
+      .contacto-grid { grid-template-columns: 1fr; }
+      .banner-btns { flex-direction: column; align-items: center; }
+      .btn-banner-wa, .btn-banner-wa2 { width: 100%; text-align: center; max-width: 280px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-icon">▶</span>
+        <span class="logo-text">GORILAZ</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html#servicios">Servicios</a></li>
+        <li><a href="contacto.html" class="nav-active">Contacto</a></li>
+        <li><a href="ubicacion.html">Ubicación</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero">
+    <div class="page-hero-content">
+      <p class="page-eyebrow">Hablemos</p>
+      <h1 class="page-title">Contacto</h1>
+      <p class="page-desc">Estamos listos para capturar tu evento. Escríbenos y cotiza sin compromiso.</p>
+      <div class="page-gold-line"></div>
+    </div>
+  </header>
+
+  <!-- CONTENIDO -->
+  <section class="contacto-section">
+
+    <a href="../index.html" class="back-link reveal">
+      <span class="back-arrow">←</span> Volver al inicio
+    </a>
+
+    <!-- Cards redes sociales -->
+    <div class="contacto-grid">
+
+      <!-- WhatsApp 1 -->
+      <div class="contacto-card reveal reveal-delay-1">
+        <div class="card-icon-wrap icon-whatsapp">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.505 5.832L.057 23.43a.75.75 0 0 0 .922.919l5.684-1.49A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.697 9.697 0 0 1-4.95-1.357l-.355-.211-3.676.964.982-3.589-.231-.368A9.697 9.697 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
+          </svg>
+        </div>
+        <h2 class="contacto-card-title">WhatsApp</h2>
+        <div class="contacto-card-info">
+          <span>55 4510 1765</span>
+          <span>71 2101 5758</span>
+        </div>
+        <div class="wa-numbers">
+          <a href="https://wa.me/525545101765" target="_blank" rel="noopener" class="contacto-btn btn-whatsapp">
+            Escribir al 55
+          </a>
+          <a href="https://wa.me/527121015758" target="_blank" rel="noopener" class="contacto-btn btn-whatsapp2">
+            Escribir al 71
+          </a>
+        </div>
+      </div>
+
+      <!-- Instagram -->
+      <div class="contacto-card reveal reveal-delay-2">
+        <div class="card-icon-wrap icon-instagram">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+          </svg>
+        </div>
+        <h2 class="contacto-card-title">Instagram</h2>
+        <div class="contacto-card-info">
+          <span>@video_grabaciones_gorilaz</span>
+        </div>
+        <a href="https://www.instagram.com/video_grabaciones_gorilaz?igsh=MTBqZTFjczJheXRqeA==" target="_blank" rel="noopener" class="contacto-btn btn-instagram">
+          Ver perfil
+        </a>
+      </div>
+
+      <!-- Facebook -->
+      <div class="contacto-card reveal reveal-delay-3">
+        <div class="card-icon-wrap icon-facebook">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </div>
+        <h2 class="contacto-card-title">Facebook</h2>
+        <div class="contacto-card-info">
+          <span>Video Grabaciones Gorilaz</span>
+        </div>
+        <a href="https://www.facebook.com/share/17Q7waD1JW/" target="_blank" rel="noopener" class="contacto-btn btn-facebook">
+          Ver página
+        </a>
+      </div>
+
+    </div>
+
+    <div class="contacto-divider reveal">
+      <span>Mensaje directo</span>
+    </div>
+
+    <!-- Banner CTA -->
+    <div class="contacto-banner reveal">
+      <h3 class="banner-title">¿Listo para tu evento?</h3>
+      <p class="banner-text">Cotiza sin compromiso. Cuéntanos la fecha, el tipo de evento y te respondemos a la brevedad.</p>
+      <div class="banner-btns">
+        <a href="https://wa.me/525545101765?text=Hola,%20me%20gustar%C3%ADa%20cotizar%20un%20evento%20con%20Video%20Grabaciones%20Gorilaz" target="_blank" rel="noopener" class="btn-banner-wa">
+          WhatsApp 55 4510 1765
+        </a>
+        <a href="https://wa.me/527121015758?text=Hola,%20me%20gustar%C3%ADa%20cotizar%20un%20evento%20con%20Video%20Grabaciones%20Gorilaz" target="_blank" rel="noopener" class="btn-banner-wa2">
+          WhatsApp 71 2101 5758
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-icon">▶</span>
+        <span class="logo-text">GORILAZ</span>
+      </div>
+      <p class="footer-tagline">Video Grabaciones Gorilaz — Contepec, Michoacán</p>
+      <div class="footer-links">
+        <a href="contacto.html">Contacto</a>
+        <span>·</span>
+        <a href="ubicacion.html">Ubicación</a>
+      </div>
+      <p class="footer-copy">&copy; 2025 Video Grabaciones Gorilaz. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
