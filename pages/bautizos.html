@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bautizos — Video Grabaciones Gorilaz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <style>
+    .page-hero {
+      min-height: 40vh;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: calc(var(--nav-h) + 3rem) 2rem 3.5rem;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 100%, rgba(201,168,76,0.1) 0%, transparent 65%),
+        linear-gradient(180deg, #0A0A0A 0%, #111 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23C9A84C' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .page-hero-content { position: relative; z-index: 1; }
+    .page-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .page-desc {
+      font-size: 0.95rem;
+      color: var(--gray-2);
+      font-weight: 300;
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .page-gold-line {
+      width: 50px;
+      height: 2px;
+      background: var(--gold);
+      margin: 1.2rem auto 0;
+    }
+    .eventos-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 2rem 6rem;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray-3);
+      margin-bottom: 3rem;
+      transition: color var(--transition);
+    }
+    .back-link:hover { color: var(--gold); }
+    .back-arrow { transition: transform var(--transition); }
+    .back-link:hover .back-arrow { transform: translateX(-4px); }
+
+    /* Próximamente */
+    .proximamente {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5rem 2rem;
+      gap: 1.5rem;
+    }
+    .prox-icon {
+      font-size: 3.5rem;
+      color: rgba(201,168,76,0.3);
+      margin-bottom: 0.5rem;
+    }
+    .prox-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--white);
+    }
+    .prox-desc {
+      font-size: 0.9rem;
+      color: var(--gray-3);
+      max-width: 400px;
+      line-height: 1.7;
+    }
+    .prox-line {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.4;
+    }
+    .btn-contacto {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.85rem 2.2rem;
+      background: var(--gold);
+      color: var(--black);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border-radius: var(--radius-sm);
+      transition: background var(--transition), transform var(--transition);
+    }
+    .btn-contacto:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-icon">▶</span>
+        <span class="logo-text">GORILAZ</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html#servicios">Servicios</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="ubicacion.html">Ubicación</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="page-hero">
+    <div class="page-hero-content">
+      <p class="page-eyebrow">Los primeros momentos de vida</p>
+      <h1 class="page-title">Bautizos</h1>
+      <p class="page-desc">Capturamos el inicio de una nueva historia con la calidad profesional que merece.</p>
+      <div class="page-gold-line"></div>
+    </div>
+  </header>
+
+  <!-- CONTENIDO -->
+  <section class="eventos-section">
+
+    <a href="../index.html" class="back-link reveal">
+      <span class="back-arrow">←</span> Volver al inicio
+    </a>
+
+    <div class="proximamente reveal">
+      <div class="prox-icon">✦</div>
+      <h2 class="prox-title">Próximamente</h2>
+      <div class="prox-line"></div>
+      <p class="prox-desc">Estamos preparando nuestra galería de bautizos. Mientras tanto, contáctanos para cotizar tu evento.</p>
+      <a href="contacto.html" class="btn-contacto">Cotizar ahora</a>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-icon">▶</span>
+        <span class="logo-text">GORILAZ</span>
+      </div>
+      <p class="footer-tagline">Video Grabaciones Gorilaz — Contepec, Michoacán</p>
+      <div class="footer-links">
+        <a href="contacto.html">Contacto</a>
+        <span>·</span>
+        <a href="ubicacion.html">Ubicación</a>
+      </div>
+      <p class="footer-copy">&copy; 2025 Video Grabaciones Gorilaz. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

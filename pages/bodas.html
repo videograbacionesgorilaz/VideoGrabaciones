@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bodas — Video Grabaciones Gorilaz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <style>
+    .page-hero {
+      min-height: 40vh;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: calc(var(--nav-h) + 3rem) 2rem 3.5rem;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 100%, rgba(201,168,76,0.1) 0%, transparent 65%),
+        radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.04) 0%, transparent 50%),
+        linear-gradient(180deg, #0A0A0A 0%, #111 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23C9A84C' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .page-hero-content { position: relative; z-index: 1; }
+    .page-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .page-desc {
+      font-size: 0.95rem;
+      color: var(--gray-2);
+      font-weight: 300;
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .page-gold-line {
+      width: 50px;
+      height: 2px;
+      background: var(--gold);
+      margin: 1.2rem auto 0;
+    }
+
+    .eventos-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 2rem 6rem;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray-3);
+      margin-bottom: 3rem;
+      transition: color var(--transition);
+    }
+    .back-link:hover { color: var(--gold); }
+    .back-arrow { transition: transform var(--transition); }
+    .back-link:hover .back-arrow { transform: translateX(-4px); }
+
+    .eventos-meta {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2.5rem;
+    }
+    .eventos-count {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray-4);
+    }
+    .eventos-count span {
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      margin-right: 6px;
+    }
+
+    .eventos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+    }
+
+    .evento-card {
+      background: var(--dark-2);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+    }
+    .evento-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(201,168,76,0.35);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 20px rgba(201,168,76,0.07);
+    }
+
+    .evento-card-header {
+      height: 320px;
+      background: linear-gradient(135deg, #1a1a1a, #222);
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+    }
+    .evento-card-header img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      opacity: 0.95;
+      transition: transform 0.5s ease, opacity var(--transition);
+    }
+    .evento-card:hover .evento-card-header img {
+      transform: scale(1.04);
+      opacity: 1;
+    }
+    .evento-card-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 38%;
+      background: linear-gradient(to top, rgba(0,0,0,0.78), transparent);
+      z-index: 1;
+      pointer-events: none;
+    }
+    /* Placeholder cuando no hay foto */
+    .card-placeholder-boda {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1a1a1a, #252525);
+      font-size: 2.5rem;
+      color: rgba(201,168,76,0.3);
+    }
+    .foto-nombre-overlay {
+      position: relative;
+      z-index: 2;
+      padding: 0 1rem 0.9rem;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: #fff;
+      letter-spacing: 0.06em;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.7);
+      line-height: 1.3;
+    }
+
+    .tipo-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 0.58rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      z-index: 2;
+    }
+    .tipo-video {
+      background: rgba(201,168,76,0.15);
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.3);
+    }
+
+    .evento-card-body {
+      padding: 1.4rem 1.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      flex: 1;
+    }
+    .evento-nombre {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--white);
+      letter-spacing: 0.05em;
+    }
+    .evento-fecha {
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      opacity: 0.8;
+    }
+    .evento-separador {
+      height: 1px;
+      background: rgba(255,255,255,0.05);
+      margin: 0.4rem 0;
+    }
+    .btn-ver {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 0.4rem;
+      padding: 0.7rem 1.2rem;
+      background: transparent;
+      border: 1px solid rgba(201,168,76,0.35);
+      border-radius: var(--radius-sm);
+      color: var(--gold);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: background var(--transition), border-color var(--transition), transform var(--transition);
+    }
+    .btn-ver:hover {
+      background: rgba(201,168,76,0.1);
+      border-color: var(--gold);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 900px) {
+      .eventos-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 580px) {
+      .eventos-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-icon">▶</span>
+        <span class="logo-text">GORILAZ</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html#servicios">Servicios</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="ubicacion.html">Ubicación</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="page-hero">
+    <div class="page-hero-content">
+      <p class="page-eyebrow">Una historia de amor para siempre</p>
+      <h1 class="page-title">Bodas</h1>
+      <p class="page-desc">Cada boda es única. Capturamos cada emoción con la producción cinematográfica que merece.</p>
+      <div class="page-gold-line"></div>
+    </div>
+  </header>
+
+  <!-- EVENTOS -->
+  <section class="eventos-section">
+
+    <a href="../index.html" class="back-link reveal">
+      <span class="back-arrow">←</span> Volver al inicio
+    </a>
+
+    <div class="eventos-meta reveal">
+      <p class="eventos-count"><span>2</span> bodas registradas</p>
+    </div>
+
+    <div class="eventos-grid">
+
+      <!-- 1. Sandra y Jorge (más reciente) -->
+      <div class="evento-card reveal reveal-delay-1">
+        <div class="evento-card-header">
+          <img src="../images/servicios/bodas/sandra-jorge.jpg" alt="Sandra y Jorge"
+               onerror="this.style.display='none'" />
+          <div class="foto-nombre-overlay">Sandra &amp; Jorge</div>
+          <span class="tipo-badge tipo-video">Video</span>
+        </div>
+        <div class="evento-card-body">
+          <h2 class="evento-nombre">Sandra &amp; Jorge</h2>
+          <p class="evento-fecha">10 de mayo, 2025</p>
+          <div class="evento-separador"></div>
+          <a href="https://www.facebook.com/share/v/1DHcBynJ5i/" target="_blank" rel="noopener" class="btn-ver">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Ver en Facebook
+          </a>
+        </div>
+      </div>
+
+      <!-- 2. Carlos y Nohemi -->
+      <div class="evento-card reveal reveal-delay-2">
+        <div class="evento-card-header">
+          <img src="../images/servicios/bodas/carlos-nohemi.jpg" alt="Carlos y Nohemi"
+               onerror="this.style.display='none'" />
+          <div class="foto-nombre-overlay">Carlos &amp; Nohemi</div>
+          <span class="tipo-badge tipo-video">Video</span>
+        </div>
+        <div class="evento-card-body">
+          <h2 class="evento-nombre">Carlos &amp; Nohemi</h2>
+          <p class="evento-fecha">14 de octubre, 2023</p>
+          <div class="evento-separador"></div>
+          <a href="https://www.facebook.com/share/p/1Ez9DoEuKS/" target="_blank" rel="noopener" class="btn-ver">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Ver en Facebook
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-icon">▶</span>
+        <span class="logo-text">GORILAZ</span>
+      </div>
+      <p class="footer-tagline">Video Grabaciones Gorilaz — Contepec, Michoacán</p>
+      <div class="footer-links">
+        <a href="contacto.html">Contacto</a>
+        <span>·</span>
+        <a href="ubicacion.html">Ubicación</a>
+      </div>
+      <p class="footer-copy">&copy; 2025 Video Grabaciones Gorilaz. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
