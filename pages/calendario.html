@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Disponibilidad — Video Grabaciones Gorilaz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <link rel="stylesheet" href="../css/calendario.css" />
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-icon">▶</span>
+        <span class="logo-text">GORILAZ</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html#servicios">Servicios</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="ubicacion.html">Ubicación</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="page-hero-content">
+      <p class="page-eyebrow">¿Cuándo es tu evento?</p>
+      <h1 class="page-title">Disponibilidad</h1>
+      <p class="page-desc">Consulta las fechas disponibles y contáctanos para apartar tu día.</p>
+      <div class="page-gold-line"></div>
+    </div>
+  </header>
+
+  <section class="cal-section">
+
+    <a href="../index.html" class="back-link">
+      <span class="back-arrow">←</span> Volver al inicio
+    </a>
+
+    <div class="cal-wrap">
+
+      <div class="cal-legend">
+        <span class="legend-item"><span class="legend-dot dot-libre"></span> Disponible</span>
+        <span class="legend-item"><span class="legend-dot dot-ocupado"></span> Ocupado</span>
+      </div>
+
+      <div class="cal-nav">
+        <button class="cal-btn-nav" id="prevMes" aria-label="Mes anterior"></button>
+        <h3 class="cal-mes-titulo" id="calTitulo"></h3>
+        <button class="cal-btn-nav" id="nextMes" aria-label="Mes siguiente"></button>
+      </div>
+
+      <div class="cal-dias-semana">
+        <span>Dom</span><span>Lun</span><span>Mar</span>
+        <span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span>
+      </div>
+
+      <div class="cal-grid" id="calGrid"></div>
+
+    </div>
+  </section>
+
+  <!-- Popup -->
+  <div class="cal-overlay" id="calOverlay"></div>
+  <div class="cal-popup" id="calPopup">
+    <button class="cal-popup-close" id="popupClose">✕</button>
+    <p class="cal-popup-icon"></p>
+    <p class="cal-popup-fecha" id="popupFecha"></p>
+    <p class="cal-popup-msg">¡Esta fecha está disponible! Contáctanos para apartarla.</p>
+    <div class="cal-popup-btns">
+      <a href="#" id="popupWA1" class="cal-popup-btn btn-wa1" target="_blank" rel="noopener">
+        WhatsApp 55 4510 1765
+      </a>
+      <a href="#" id="popupWA2" class="cal-popup-btn btn-wa2" target="_blank" rel="noopener">
+        WhatsApp 71 2101 5758
+      </a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-icon">▶</span>
+        <span class="logo-text">GORILAZ</span>
+      </div>
+      <p class="footer-tagline">Video Grabaciones Gorilaz — Contepec, Michoacán</p>
+      <div class="footer-links">
+        <a href="contacto.html">Contacto</a>
+        <span>·</span>
+        <a href="ubicacion.html">Ubicación</a>
+      </div>
+      <p class="footer-copy">&copy; 2025 Video Grabaciones Gorilaz. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/calendario.js"></script>
+</body>
+</html>
