@@ -4,7 +4,6 @@
 
    *** AQUÍ AGREGAS LAS FECHAS OCUPADAS ***
    Formato: 'YYYY-MM-DD'
-   Ejemplo: '2025-12-25'
 */
 const FECHAS_OCUPADAS = [
   
@@ -13,9 +12,11 @@ const FECHAS_OCUPADAS = [
   '2026-07-31',
   '2026-08-15',
   '2026-09-12',
+  '2026-10-17',
+  '2026-11-14',
   '2026-12-19',
   '2027-01-02',
-  // Agrega aquí más fechas según tus eventos confirmados
+  // Fechas
 ];
 
 const MESES = [
